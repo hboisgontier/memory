@@ -15,6 +15,14 @@ let nbCoups;
 let cartes;
 init();
 
+let androidLinux = null;
+if(navigator.userAgent.match(/Android|Linux/) !== null) {
+    androidLinux = document.createElement('div');
+    androidLinux.id = 'androidLinux';
+    androidLinux.setAttribute('aria-live', 'polite');
+    document.querySelector('body').appendChild(androidLinux);
+}
+
 function init() {
     message.innerHTML = '';
     plateau.innerHTML = '';
@@ -52,6 +60,8 @@ function devoiler() {
             // dévoiler la carte
             this.setAttribute('src', 'ressources/memory-legume/' + cartes[pos] + '.svg');
             this.setAttribute('alt', alternativesTextuelles[cartes[pos]]);
+            if(androidLinux!=null)
+                androidLinux.innerText = alternativesTextuelles[cartes[pos]];
             if(carteDevoilee1 == null) {
                 carteDevoilee1 = this;
             } else if(this.id !== carteDevoilee1.id) {
@@ -81,6 +91,8 @@ function retourner() {
 function cacher(carte) {
     carte.setAttribute('src', 'ressources/dos.svg');
     carte.setAttribute('alt', 'carte inconnue en position '+(1+parseInt(carte.id)));
+    if(androidLinux!=null)
+        androidLinux.innerText = '';
 }
 
 function getRandomInt(max) {

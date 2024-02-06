@@ -34,3 +34,8 @@ header p {
 main p {
     margin: 0;
 }
+
+#androidLinux {
+    position: absolute;
+    top: -1000px;
+}
