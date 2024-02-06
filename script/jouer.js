@@ -90,7 +90,11 @@ function getRandomInt(max) {
 function afficher() {
     message.innerText = nbPaires + ' sur ' + totalPaires + ' paires';
     if(nbPaires === totalPaires) {
-        victoire.innerHTML = 'Vous avez gagné en ' + nbCoups + ' coups';
-        nouvellePartie.focus();
+        setTimeout(() => {
+            victoire.innerHTML = 'Vous avez gagné en ' + nbCoups + ' coups';
+        }, 50);
+        setTimeout(() => {
+            nouvellePartie.focus();
+        }, 100);
     }
 }
