@@ -1,0 +1,36 @@
+#plateau {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#affichage {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carte {
+    border-radius: .5em;
+    background-color: #f0f8ff;
+    margin: .5em 0;
+    padding: .5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#live {
+    display: block;
+    height: 1em;
+}
+
+#totalPaires {
+    width: 4ch;
+}
+
+header p {
+    font-style: italic;
+}
+main p {
+    margin: 0;
+}

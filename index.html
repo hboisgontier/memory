@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mémory</title>
+    <link rel="stylesheet" href="style/app.css">
+    <link rel="stylesheet" href="style/jouer.css">
+</head>
+<body>
+    <header>
+        <h1>Mémory</h1>
+    </header>
+    <main>
+        <div id="affichage">
+            <p id="message"></p>
+            <p id="victoire"></p>
+            <div>
+                <input type="number" min="2" max="6" id="totalPaires" value="6"> paires
+                <button id="nouvellePartie">nouvelle partie</button>
+            </div>
+        </div>
+        <div id="plateau">
+            <template id="carteTemplate">
+                <img class="carte" src="ressources/dos.svg">
+            </template>
+        </div>
+    </main>
+    <footer>
+        <a href="https://www.flaticon.com/fr/packs/vegan-41">Fruits créés par Icongeek26 - Flaticon</a>
+    </footer>
+    <script src="script/jouer.js" defer></script>
+</body>
+</html>
