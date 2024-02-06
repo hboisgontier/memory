@@ -4,6 +4,7 @@ const message = document.getElementById('message');
 const victoire = document.getElementById('victoire');
 const nouvellePartie = document.getElementById('nouvellePartie');
 const inputTotalPaires = document.getElementById('totalPaires');
+const alternativesTextuelles = ['fraise', 'pomme', 'banane', 'brocoli', 'cerise', 'piment'];
 
 nouvellePartie.onclick = init;
 let carteDevoilee1;
@@ -35,6 +36,7 @@ function init() {
     for(let i=0; i<totalPaires*2; i++) {
         let templateCarte = document.importNode(carteTemplate.content, true);
         let carte = templateCarte.firstElementChild;
+        carte.setAttribute('alt', 'carte inconnue en position '+(i+1));
         carte.id = i;
         carte.onclick = devoiler;
         plateau.appendChild(templateCarte);
@@ -49,6 +51,7 @@ function devoiler() {
         if(this.getAttribute('src') === 'ressources/dos.svg') {
             // dévoiler la carte
             this.setAttribute('src', 'ressources/memory-legume/' + cartes[pos] + '.svg');
+            this.setAttribute('alt', alternativesTextuelles[cartes[pos]]);
             if(carteDevoilee1 == null) {
                 carteDevoilee1 = this;
             } else if(this.id !== carteDevoilee1.id) {
@@ -77,6 +80,7 @@ function retourner() {
 
 function cacher(carte) {
     carte.setAttribute('src', 'ressources/dos.svg');
+    carte.setAttribute('alt', 'carte inconnue en position '+(1+parseInt(carte.id)));
 }
 
 function getRandomInt(max) {
